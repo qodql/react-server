@@ -38,17 +38,18 @@ todos.post('/', async function (req, res) {
     //const findResult = await collection.find({}).toArray();
     client.close();
    
-    res.send(findResult)
+    res.send('done')
 })
 
 
 todos.put('/', async function (req, res) {
     const collection = await connect();
                        await collection.updateOne({id:req.body.id}, {$set:req.body});
-    const findResult = await collection.find({}).toArray();
+    //const findResult = await collection.find({}).toArray();
     client.close();
    
-    res.send(findResult)
+    //res.send(findResult)
+    res.send('done')
 
 })
 
@@ -56,10 +57,10 @@ todos.delete('/', async function (req, res) {
       
     const collection = await connect();
                        await collection.deleteOne(req.query);
-    const findResult = await collection.find({}).toArray();
+    //const findResult = await collection.find({}).toArray();
     client.close();
 
-    res.send(findResult)
+    res.send('done')
 })
 
 
